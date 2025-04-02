@@ -1,0 +1,139 @@
+﻿@model DAL.DTO.UserDTO
+
+@{
+    ViewData["Title"] = "Create User";
+}
+
+<h2 class="text-center mt-3">Create User</h2>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg rounded-3">
+                <div class="card-body">
+                    <h4 class="card-title text-center">User Details</h4>
+                    <hr />
+
+                    <form asp-controller="User" asp-action="Create" method="post" class="needs-validation" novalidate>
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="FirstName" class="form-label fw-bold"></label>
+                                    <input asp-for="FirstName" class="form-control" required />
+                                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="MiddleName" class="form-label fw-bold"></label>
+                                    <input asp-for="MiddleName" class="form-control" />
+                                    <span asp-validation-for="MiddleName" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="LastName" class="form-label fw-bold"></label>
+                                    <input asp-for="LastName" class="form-control" required />
+                                    <span asp-validation-for="LastName" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="Address" class="form-label fw-bold"></label>
+                                    <input asp-for="Address" class="form-control" required />
+                                    <span asp-validation-for="Address" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="PhoneNumber" class="form-label fw-bold"></label>
+                                    <input asp-for="PhoneNumber" class="form-control" required />
+                                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="Email" class="form-label fw-bold"></label>
+                                    <input asp-for="Email" type="email" class="form-control" required />
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label asp-for="City" class="form-label fw-bold"></label>
+                                    <input asp-for="City" class="form-control" required />
+                                    <span asp-validation-for="City" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label asp-for="State" class="form-label fw-bold"></label>
+                                    <input asp-for="State" class="form-control" required />
+                                    <span asp-validation-for="State" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label asp-for="PinCode" class="form-label fw-bold"></label>
+                                    <input asp-for="PinCode" class="form-control" required />
+                                    <span asp-validation-for="PinCode" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="Username" class="form-label fw-bold"></label>
+                                    <input asp-for="Username" class="form-control" required />
+                                    <span asp-validation-for="Username" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="Password" class="form-label fw-bold"></label>
+                                    <input asp-for="Password" type="password" class="form-control" required />
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <!-- Status Dropdown -->
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <label asp-for="StatusId" class="form-label fw-bold"></label>
+                                    <select asp-for="StatusId" class="form-select" required asp-items="ViewBag.Statuses">
+                                        <option value="">Select Status</option>
+                                    </select>
+                                    <span asp-validation-for="StatusId" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn btn-primary w-50">Create</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="text-center mt-3">
+                <a asp-action="Index" class="btn btn-outline-secondary">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
